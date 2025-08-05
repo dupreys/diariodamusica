@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Busca - Diário do Rock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;700&family=Poppins:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script async src="https://www.antena1.com.br/embed/radioPlayer.min.js"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="Diário do Rock Logo" style="height: 70px;">
+                </a>
+            </div>
+            <div class="search-box">
+                <form id="search-form">
+                    <input type="text" placeholder="Buscar artista, álbum..." id="search-input">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" title="Alternar tema">
+                <i class="fas fa-moon"></i> <span id="theme-text">Tema Escuro</span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="resenhas.html">Resenhas</a></li>
+                    <li><a href="noticias.html">Novidades</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container main-grid">
+            <div class="main-articles">
+                <h1>Resultados da Busca por: "<span id="search-term-display"></span>"</h1>
+                <div id="search-results-container" class="article-grid">
+                    <p id="no-results" style="display: none;">Nenhum resultado encontrado.</p>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="player-antena1" id="link-a2"></div>
+                <div class="most-read">
+                    <h2>Mais Lidos</h2>
+                    <ul>
+                        <li><a href="#">O Legado de David Bowie no Pop</a></li>
+                        <li><a href="#">Entrevista exclusiva com a banda The Echoes</a></li>
+                        <li><a href="#">Guia para iniciantes em Jazz Fusion</a></li>
+                    </ul>
+                </div>
+                <div class="latest-news">
+                    <h2>Outras Notícias</h2>
+                    <div class="news-card-small">
+                        <img src="https://picsum.photos/id/1045/600/400" alt="Lançamento de Álbum">
+                        <a href="#">Novo álbum de "Luna Waves" domina as paradas.</a>
+                    </div>
+                    <div class="news-card-small">
+                        <img src="https://picsum.photos/id/1046/600/400" alt="Tour de Banda">
+                        <a href="#">Banda "The Synths" anuncia tour mundial para 2025.</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Diário do Rock. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme');
+
+        // Função para atualizar o botão
+        function updateThemeButton() {
+            const icon = themeToggle.querySelector('i');
+            const text = themeToggle.querySelector('#theme-text');
+            if (body.classList.contains('dark-theme')) {
+                icon.className = 'fas fa-sun';
+                text.textContent = 'Tema Claro';
+            } else {
+                icon.className = 'fas fa-moon';
+                text.textContent = 'Tema Escuro';
+            }
+        }
+
+        // Verifica o tema ao carregar a página
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+        }
+        // Atualiza o botão após definir o tema inicial
+        updateThemeButton();
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                if (body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark-theme');
+                } else {
+                    localStorage.setItem('theme', '');
+                }
+                updateThemeButton(); // Atualiza o botão após o clique
+            });
+        }
+
+
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+
+        if (searchForm) {
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const searchTerm = searchInput.value;
+                if (searchTerm) {
+                    window.location.href = `search-results.html?q=${encodeURIComponent(searchTerm)}`;
+                }
+            });
+        }
+
+        const articles = [
+            {
+                title: "Resenha: Master of Puppets do Metallica",
+                content: "Uma análise aprofundada do álbum que redefiniu o thrash metal...",
+                url: "resenha-master-of-puppets.html",
+                image: "https://picsum.photos/id/1041/600/400"
+            },
+            {
+                title: "O Legado de David Bowie: O Artista que Mudou a Música",
+                content: "Explorando a carreira camaleônica do ícone do rock...",
+                url: "resenha-david-bowie.html",
+                image: "https://picsum.photos/id/1042/600/400"
+            },
+            {
+                title: "Lenda do Rock Anuncia Novo Álbum de Surpresa",
+                content: "O guitarrista icônico Jimi Hendrix lança 'Return to the Stars'...",
+                url: "noticias.html",
+                image: "https://picsum.photos/id/1036/800/500"
+            },
+            {
+                title: "A Renascença do Rock Clássico",
+                content: "Em uma era dominada por sons eletrônicos e batidas de pop...",
+                url: "artigo1.html",
+                image: "https://picsum.photos/id/1041/800/500"
+            },
+            {
+                title: "O Poder do Hip-Hop Underground",
+                content: "Enquanto as paradas de sucesso celebram os nomes mais conhecidos...",
+                url: "artigo2.html",
+                image: "https://picsum.photos/id/1043/800/500"
+            }
+        ];
+
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('q');
+        }
+
+        function searchArticles(query) {
+            const results = articles.filter(article => {
+                return article.title.toLowerCase().includes(query.toLowerCase()) ||
+                    article.content.toLowerCase().includes(query.toLowerCase());
+            });
+            return results;
+        }
+
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('search-results-container');
+            const noResultsMessage = document.getElementById('no-results');
+            resultsContainer.innerHTML = '';
+
+            if (results.length > 0) {
+                noResultsMessage.style.display = 'none';
+                results.forEach(article => {
+                    const card = `
+                        <article class="article-card fade-in-card visible">
+                            <img src="${article.image}" alt="${article.title}">
+                            <div class="article-card-content">
+                                <h3>${article.title}</h3>
+                                <div class="card-meta">
+                                    <span>Por Admin</span>
+                                    <span class="separator">|</span>
+                                    <span>04 de Agosto de 2025</span>
+                                </div>
+                                <p>${article.content.substring(0, 100)}...</p>
+                                <a href="${article.url}" class="read-more">Leia Mais</a>
+                            </div>
+                        </article>
+                    `;
+                    resultsContainer.innerHTML += card;
+                });
+            } else {
+                noResultsMessage.style.display = 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchTerm = getQueryParams();
+            if (searchTerm) {
+                document.getElementById('search-term-display').textContent = searchTerm;
+                const results = searchArticles(searchTerm);
+                displayResults(results);
+            } else {
+                document.getElementById('search-term-display').textContent = '';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novidades - Diário do Rock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;700&family=Poppins:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script async src="https://www.antena1.com.br/embed/radioPlayer.min.js"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="Diário do Rock Logo" style="height: 70px;">
+                </a>
+            </div>
+            <div class="search-box">
+                <form id="search-form">
+                    <input type="text" placeholder="Buscar artista, álbum..." id="search-input">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" title="Alternar tema">
+                <i class="fas fa-moon"></i> <span id="theme-text">Tema Escuro</span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="resenhas.html">Resenhas</a></li>
+                    <li><a href="noticias.html">Novidades</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container main-grid">
+            <div class="main-articles">
+                <h1>Últimas Notícias do Rock</h1>
+                <section class="news-list">
+                    <div class="news-card-large info-card">
+                        <img src="https://picsum.photos/id/1036/800/500" alt="Banda em estúdio">
+                        <div class="news-content">
+                            <h3>Lenda do Rock Anuncia Novo Álbum de Surpresa</h3>
+                            <p>O guitarrista icônico Jimmy Hendrix lança "Return to the Stars", seu primeiro trabalho
+                                solo em uma década, com sonoridade experimental e riffs pesados...</p>
+                            <a href="#">Leia a notícia completa</a>
+                        </div>
+                    </div>
+                    <div class="news-card-large info-card">
+                        <img src="https://picsum.photos/id/1047/800/500" alt="Concertos">
+                        <div class="news-content">
+                            <h3>Festival de Verão Confirma Headliners de Rock</h3>
+                            <p>O "Rock Arena Festival" divulgou a escalação principal, trazendo Guns N' Roses e The
+                                Rolling Stones como as grandes atrações do evento deste ano...</p>
+                            <a href="#">Leia a notícia completa</a>
+                        </div>
+                    </div>
+                    <div class="news-card-large info-card">
+                        <img src="https://picsum.photos/id/1048/800/500" alt="Banda em concerto">
+                        <div class="news-content">
+                            <h3>Nova Banda de Rock Alternativo Viraliza com Single</h3>
+                            <p>Os novatos do "Cosmic Dust" conquistam a internet com o lançamento de seu single de
+                                estreia, "Echoes in Space", atingindo milhões de reproduções...</p>
+                            <a href="#">Leia a notícia completa</a>
+                        </div>
+                    </div>
+                    <div class="news-card-large info-card">
+                        <img src="https://picsum.photos/id/1049/800/500" alt="Banda em concerto">
+                        <div class="news-content">
+                            <h3>Análise do Novo Álbum da Banda "The Strokes"</h3>
+                            <p>Com um retorno ao estilo lo-fi que os consagrou, "The Strokes" lança o álbum "Future
+                                Present", que já se tornou um favorito dos fãs...</p>
+                            <a href="#">Leia a notícia completa</a>
+                        </div>
+                    </div>
+                    <div class="news-card-large info-card">
+                        <img src="https://picsum.photos/id/1050/800/500" alt="Banda em estúdio">
+                        <div class="news-content">
+                            <h3>O retorno triunfal do Rock Progressivo</h3>
+                            <p>O gênero que misturou rock, jazz e música clássica está mais vivo do que nunca, com novas
+                                bandas liderando uma tendência de experimentação musical...</p>
+                            <a href="#">Leia a notícia completa</a>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="pagination">
+                    <button class="page-link active" data-page="1">1</button>
+                    <button class="page-link" data-page="2">2</button>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="player-antena1" id="link-a2"></div>
+                <div class="most-read">
+                    <h2>Mais Lidos</h2>
+                    <ul>
+                        <li><a href="#">Resenha: "Master of Puppets" do Metallica</a></li>
+                        <li><a href="#">O Legado de David Bowie: O Artista que Mudou a Música</a></li>
+                        <li><a href="#">As 10 bandas de Rock que você precisa conhecer</a></li>
+                    </ul>
+                </div>
+                <div class="latest-news">
+                    <h2>Outras Notícias</h2>
+                    <div class="news-card-small">
+                        <img src="https://picsum.photos/id/1045/600/400" alt="Lançamento de Álbum">
+                        <a href="#">Novo álbum de "Luna Waves" domina as paradas.</a>
+                    </div>
+                    <div class="news-card-small">
+                        <img src="https://picsum.photos/id/1046/600/400" alt="Tour de Banda">
+                        <a href="#">Banda "The Synths" anuncia tour mundial para 2025.</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Diário do Rock. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme');
+
+        // Função para atualizar o botão
+        function updateThemeButton() {
+            const icon = themeToggle.querySelector('i');
+            const text = themeToggle.querySelector('#theme-text');
+            if (body.classList.contains('dark-theme')) {
+                icon.className = 'fas fa-sun';
+                text.textContent = 'Tema Claro';
+            } else {
+                icon.className = 'fas fa-moon';
+                text.textContent = 'Tema Escuro';
+            }
+        }
+
+        // Verifica o tema ao carregar a página
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+        }
+        // Atualiza o botão após definir o tema inicial
+        updateThemeButton();
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                if (body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark-theme');
+                } else {
+                    localStorage.setItem('theme', '');
+                }
+                updateThemeButton(); // Atualiza o botão após o clique
+            });
+        }
+
+
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+
+        if (searchForm) {
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const searchTerm = searchInput.value;
+                if (searchTerm) {
+                    window.location.href = `search-results.html?q=${encodeURIComponent(searchTerm)}`;
+                }
+            });
+        }
+
+        // Lógica de Paginação para a página de Novidades
+        document.addEventListener('DOMContentLoaded', () => {
+            const postsPerPage = 3; // Mostrar 3 posts por página
+            const posts = document.querySelectorAll('.news-list .news-card-large');
+            const paginationLinks = document.querySelectorAll('.pagination .page-link');
+
+            function showPage(pageNumber) {
+                const startIndex = (pageNumber - 1) * postsPerPage;
+                const endIndex = startIndex + postsPerPage;
+
+                posts.forEach((post, index) => {
+                    if (index >= startIndex && index < endIndex) {
+                        post.style.display = 'block';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            }
+
+            paginationLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const pageNumber = event.target.dataset.page;
+
+                    paginationLinks.forEach(item => item.classList.remove('active'));
+
+                    event.target.classList.add('active');
+
+                    showPage(parseInt(pageNumber));
+                });
+            });
+
+            showPage(1);
+        });
+
+        // --- Lógica para o link ativo na navegação ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        const currentPath = window.location.pathname.split('/').pop();
+
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+            if (linkPath === currentPath) {
+                link.classList.add('active');
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

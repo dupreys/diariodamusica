@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Poder do Hip-Hop Underground - Diário do Rock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;700&family=Poppins:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script async src="https://www.antena1.com.br/embed/radioPlayer.min.js"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="Diário do Rock Logo" style="height: 70px;">
+                </a>
+            </div>
+            <div class="search-box">
+                <form id="search-form">
+                    <input type="text" placeholder="Buscar artista, álbum..." id="search-input">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" title="Alternar tema">
+                <i class="fas fa-moon"></i> <span id="theme-text">Tema Escuro</span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="resenhas.html">Resenhas</a></li>
+                    <li><a href="noticias.html">Novidades</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container main-grid">
+            <div class="main-articles">
+                <div class="info-card">
+                    <h1>O Poder do Hip-Hop Underground</h1>
+                    <div class="article-meta">
+                        <span>Por [Seu Nome]</span>
+                        <span class="separator">|</span>
+                        <span>04 de Agosto de 2025</span>
+                    </div>
+                    <img src="https://picsum.photos/id/1043/800/500" alt="Grafitagem de Hip-Hop"
+                        style="width: 100%; border-radius: 8px; margin-bottom: 20px;">
+                    <p>
+                        Enquanto as paradas de sucesso celebram os nomes mais conhecidos do hip-hop, um movimento
+                        vibrante e autêntico continua a prosperar nas ruas e na internet: o hip-hop underground. Este é
+                        o lar de artistas que priorizam a mensagem, a técnica e a inovação sonora, muitas vezes
+                        desafiando as convenções do mercado.
+                    </p>
+                    <p>
+                        A cena underground é um celeiro de criatividade, onde MCs exploram temas sociais, políticos e
+                        pessoais com uma profundidade que raramente se vê na música comercial. A produção musical é
+                        frequentemente experimental, misturando elementos de jazz, soul e música eletrônica para criar
+                        um som único e inconfundível.
+                    </p>
+                    <p>
+                        Para os fãs que buscam algo além do mainstream, o hip-hop underground oferece uma riqueza de
+                        talento a ser descoberta. É um lembrete do poder da música como forma de expressão cultural e de
+                        como as raízes de um gênero podem continuar a se fortalecer longe dos holofotes.
+                    </p>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="player-antena1" id="link-a2"></div>
+                <div class="most-read">
+                    <h2>Mais Lidos</h2>
+                    <ul>
+                        <li><a href="#">O Legado de David Bowie no Pop</a></li>
+                        <li><a href="#">Entrevista exclusiva com a banda The Echoes</a></li>
+                        <li><a href="#">Guia para iniciantes em Jazz Fusion</a></li>
+                    </ul>
+                </div>
+                <div class="latest-news">
+                    <h2>Novidades</h2>
+                    <div class="news-card-small">
+                        <img src="https://picsum.photos/id/1045/600/400" alt="Lançamento de Álbum">
+                        <a href="#">Novo álbum de "Luna Waves" domina as paradas.</a>
+                    </div>
+                    <div class="news-card-small">
+                        <img src="https://picsum.photos/id/1046/600/400" alt="Tour de Banda">
+                        <a href="#">Banda "The Synths" anuncia tour mundial para 2025.</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Diário do Rock. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme');
+
+        // Função para atualizar o botão
+        function updateThemeButton() {
+            const icon = themeToggle.querySelector('i');
+            const text = themeToggle.querySelector('#theme-text');
+            if (body.classList.contains('dark-theme')) {
+                icon.className = 'fas fa-sun';
+                text.textContent = 'Tema Claro';
+            } else {
+                icon.className = 'fas fa-moon';
+                text.textContent = 'Tema Escuro';
+            }
+        }
+
+        // Verifica o tema ao carregar a página
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+        }
+        // Atualiza o botão após definir o tema inicial
+        updateThemeButton();
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                if (body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark-theme');
+                } else {
+                    localStorage.setItem('theme', '');
+                }
+                updateThemeButton(); // Atualiza o botão após o clique
+            });
+        }
+
+
+        if (searchForm) {
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const searchTerm = searchInput.value;
+                if (searchTerm) {
+                    window.location.href = `search-results.html?q=${encodeURIComponent(searchTerm)}`;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

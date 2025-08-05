@@ -1,0 +1,724 @@
+/* --- Variaveis de cor para tema claro e escuro --- */
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --card-bg-color: #ffffff;
+    --accent-color: #1a73e8; /* Azul vibrante para acentos */
+    --hover-color: #155eaf;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg-color: #1e1e1e;
+    --accent-color: #bb86fc; /* Roxo vibrante para acentos */
+    --hover-color: #985be9;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* --- Estilos Gerais --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    /* CÓDIGO PARA FIXAR O RODAPÉ */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+/* --- Header e Navegação --- */
+.header {
+    background-color: var(--card-bg-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    padding: 1rem 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.search-box {
+    flex-grow: 1;
+    margin: 0 2rem;
+    max-width: 400px;
+}
+
+.search-box form {
+    display: flex;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid var(--text-color);
+    border-radius: 25px 0 0 25px;
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border-right: none;
+}
+
+.search-box button {
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--text-color);
+    border-radius: 0 25px 25px 0;
+    background-color: var(--accent-color);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: var(--hover-color);
+}
+
+/* --- Estilo do botão de alternar tema --- */
+.theme-toggle {
+    display: flex; /* Alinha o ícone e o texto */
+    align-items: center;
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    margin-right: 20px;
+}
+
+.theme-toggle:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
+
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--accent-color);
+}
+
+.theme-toggle i {
+    margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+}
+
+/* Estilo para o tema escuro */
+body.dark-theme .theme-toggle {
+    border-color: var(--border-color-dark);
+    color: var(--text-color-dark);
+}
+
+body.dark-theme .theme-toggle:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+}
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-menu a {
+    font-weight: 500;
+    color: var(--text-color);
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-menu a.active {
+    border-bottom-color: var(--accent-color);
+}
+
+/* --- Layout Principal --- */
+.main-content {
+    padding: 40px 0;
+
+    /* CÓDIGO PARA FIXAR O RODAPÉ */
+    flex-grow: 1;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Cartões de Artigos --- */
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.article-card {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-card-content {
+    padding: 20px;
+}
+
+.article-card-content h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+/* --- Menus Laterais --- */
+.most-read,
+.latest-news {
+    background-color: var(--card-bg-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.most-read h2,
+.latest-news h2 {
+    font-size: 1.3rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.most-read ul {
+    list-style: none;
+    padding: 0;
+}
+
+.most-read li a {
+    display: block;
+    padding: 8px 0;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.most-read li a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.latest-news .news-card-small {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.latest-news .news-card-small:first-of-type {
+    margin-top: 0;
+}
+
+.latest-news .news-card-small img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.latest-news .news-card-small a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.latest-news .news-card-small a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--card-bg-color);
+    text-align: center;
+    padding: 0.3rem 0;
+    margin-top: 40px;
+    box-shadow: 0 -2px 10px var(--shadow-color);
+}
+
+/* --- Estilos para a lista de gêneros --- */
+.genre-list h2 {
+    font-size: 1.8rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--accent-color);
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.genre-list h2:first-of-type {
+    margin-top: 0;
+}
+
+.genre-list ul {
+    list-style: disc; /* Adiciona as bolinhas de volta */
+    padding-left: 20px;
+}
+
+.genre-list li {
+    margin-bottom: 10px;
+}
+
+.genre-list li a {
+    color: var(--text-color); /* Cor do texto no modo claro/escuro */
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.genre-list li a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* --- Estilos para o Formulário de Contato --- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-form label {
+    font-weight: 500;
+    margin-bottom: -5px; /* Ajusta o espaçamento para ficar mais próximo do campo */
+    color: var(--text-color);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+body.dark-theme .contact-form input,
+body.dark-theme .contact-form textarea {
+    border-color: #555;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start;
+}
+
+.submit-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+/* --- Estilos Responsivos (para telas menores que 768px) --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px; /* Reduz o padding lateral em telas pequenas */
+    }
+
+    /* Ajusta o cabeçalho para layout de celular */
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .logo {
+        margin-bottom: 0.5rem;
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .search-box form {
+        width: 100%;
+    }
+
+    .theme-toggle {
+        margin-left: 0;
+    }
+
+    .nav-menu ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Altera o layout principal de duas colunas para uma única coluna */
+    .main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Garante que os cartões de artigos fiquem em uma única coluna */
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        margin-top: 0;
+    }
+
+    /* Ajusta as fontes e o padding para melhor leitura em telas pequenas */
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .article-card-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .most-read h2,
+    .latest-news h2 {
+        font-size: 1.2rem;
+    }
+
+    .latest-news .news-card-small img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .latest-news .news-card-small a {
+        font-size: 1rem;
+    }
+
+    /* Estilos do formulário de contato para telas menores */
+    .contact-form {
+        gap: 10px;
+    }
+    
+    .submit-button {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+/* --- Estilos para o Player de Rádio no Topo --- */
+.radio-player-container {
+    background-color: var(--card-bg-color); /* Fundo do card */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.player-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-content p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-color); /* Cor de destaque para o título */
+}
+
+.player-content audio {
+    width: 250px;
+}
+
+/* Estilos para o tema escuro */
+body.dark-theme .radio-player-container {
+    background-color: var(--card-bg-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+/* --- Estilos Responsivos para o Player --- */
+@media (max-width: 768px) {
+    .player-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .player-content p {
+        font-size: 1rem;
+    }
+
+    .player-content audio {
+        width: 100%;
+    }
+}
+
+/* Espaçamento para o player na barra lateral */
+.sidebar .player-antena1 {
+    margin-bottom: 20px;
+}
+
+/* --- Estilos para as Postagens de Novidades (Revisado) --- */
+.news-list {
+display: flex;
+flex-direction: column;
+gap: 30px;
+margin-top: 20px;
+}
+
+.news-card-large {
+background-color: var(--card-bg-color); /* Fundo do card /
+border-radius: 12px;
+box-shadow: 0 5px 15px var(--shadow-color); / Sombra do card */
+overflow: hidden;
+}
+
+.news-card-large img {
+width: 100%;
+height: auto;
+display: block;
+border-bottom: 3px solid var(--accent-color);
+}
+
+.news-card-large .news-content {
+padding: 20px;
+}
+
+.news-card-large .news-content h3 {
+margin-top: 0;
+font-size: 1.5rem;
+color: var(--text-color); /* Cor do título */
+}
+
+.news-card-large .news-content p {
+font-size: 1rem;
+line-height: 1.5;
+color: var(--text-color); /* Cor do texto */
+}
+
+.news-card-large .news-content a {
+display: inline-block;
+margin-top: 15px;
+color: var(--accent-color);
+font-weight: bold;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.news-card-large .news-content a:hover {
+color: var(--hover-color);
+text-decoration: underline;
+}
+
+/* Ajustes para o tema escuro /
+
+body.dark-theme .news-card-large img {
+border-bottom: 3px solid var(--accent-color); / Mantém a cor de destaque /
+}
+
+body.dark-theme .news-card-large {
+background-color: var(--card-bg-color); / Fundo do card no tema escuro /
+box-shadow: 0 5px 15px var(--shadow-color); / Sombra do card no tema escuro /
+}
+
+body.dark-theme .news-card-large .news-content h3,
+body.dark-theme .news-card-large .news-content p {
+color: var(--text-color); / Cor do texto no tema escuro /
+}
+
+body.dark-theme .news-card-large .news-content a {
+color: var(--accent-color); / Mantém a cor de destaque no tema escuro /
+}
+
+body.dark-theme .news-card-large .news-content a:hover {
+color: var(--hover-color); / Cor do hover no tema escuro */
+
+/* --- Estilos para a Meta-Informação nos Artigos Completos --- */
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.article-meta .separator {
+    color: #ccc;
+}
+
+body.dark-theme .article-meta {
+    color: #aaa;
+}
+
+body.dark-theme .article-meta .separator {
+    color: #666;
+}
+
+/* --- Estilos da Página de Resultados de Busca --- */
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+#no-results {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 50px;
+    grid-column: 1 / -1;
+}
+
+#search-results-container h1 {
+    font-size: 2rem;
+    color: var(--title-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* --- Estilos para a Paginação --- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.pagination .page-link {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+}
+
+.pagination .page-link.active {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+    cursor: default;
+}
+
+.header .logo img {
+    height: auto;
+    max-height: 100px; /* ou o tamanho que você preferir */
+}
+
+/* --- Estilo para o link ativo na navegação --- */
+.nav-menu a.active {
+    color: var(--accent-color); /* Muda a cor do texto para a cor de destaque */
+    font-weight: 700; /* Deixa o texto em negrito */
+    border-bottom: 2px solid var(--accent-color); /* Adiciona uma borda na parte inferior */
+    padding-bottom: 5px; /* Adiciona um pequeno espaçamento */
+}
+
+/* --- Efeito Hover no menu de navegação --- */
+
+/* Estilo para o link padrão */
+.nav-menu a {
+    /* Adicione uma transição suave para as mudanças de cor */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Estilo que será aplicado quando o mouse passar por cima do link */
+.nav-menu a:not(.active):hover {
+    color: var(--accent-color);
+}
+
+/* Estilo para o link ativo, garantindo que o hover não mude a borda */
+.nav-menu a.active:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Efeito de hover nos links das notícias no tema escuro */
+body.dark-theme .nav-menu a:not(.active):hover {
+    color: var(--accent-color); /* Mantém a cor de destaque */
+}
